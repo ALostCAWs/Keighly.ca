@@ -19,6 +19,7 @@
 	"devDependencies": {
 		"eslint": "^7.26.0",
 		"eslint-config-prettier": "^8.2.0",
+		"eslint-plugin-import": "^2.22.1",
 		"gulp-eslint": "^6.0.0"
 	}
 }
