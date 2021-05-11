@@ -1,6 +1,24 @@
 {
-  "devDependencies": {
-    "eslint": "^7.24.0",
-    "eslint-config-prettier": "^8.2.0"
-  }
+	"name": "keighly.ca",
+	"version": "1.0.0",
+	"description": "Portfolio site for junior JavaScript web developer / designer Keighly Hill",
+	"keywords": [
+		"Keighly",
+		"JavaScript",
+		"web",
+		"developer",
+		"designer",
+		"portfolio",
+		"project"
+	],
+	"author": "Keighly Hill",
+	"license": "MIT",
+	"scripts": {
+		"lint": "eslint public/projects/**/js/*.js"
+	},
+	"devDependencies": {
+		"eslint": "^7.26.0",
+		"eslint-config-prettier": "^8.2.0",
+		"gulp-eslint": "^6.0.0"
+	}
 }
