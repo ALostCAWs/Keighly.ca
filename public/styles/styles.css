@@ -24,6 +24,7 @@
 
 	/* Typography */
 	--main-font: "Montserrat", sans-serif;
+	--main-font-fallback: sans-serif;
 	/* --accent-font: */
 	--main-font-wght: 500;
 	--base-size: 0.79rem;
@@ -35,20 +36,7 @@
 	--h1: calc(var(--h2) * var(--type-scale));
 }
 
-/* Reset, Border-Box, & Font-Var-Set */
-* {
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box;
-	font-variation-settings: "wght" var(--main-font-wght);
-}
-
-html,
-body {
-	overflow-x: hidden;
-	max-width: 100%;
-}
-
+/* Assign typescale sizes */
 h1 {
 	font-size: var(--h1);
 }
@@ -73,10 +61,31 @@ p {
 	font-size: var(--base-size);
 }
 
+/* Reset, Border-Box, & Font-Var-Set */
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-variation-settings: "wght" var(--main-font-wght);
+}
+
+html,
+body {
+	overflow-x: hidden;
+	max-width: 100%;
+}
+
 body {
 	background-color: var(--main-color);
-	font-family: var(--main-font);
+	font-family: var(--main-font-fallback);
 	color: var(--font-color);
+}
+
+/* Check Var Font Support */
+@supports (font-variation-settings: "wght" 500) {
+	body {
+		font-family: var(--main-font);
+	}
 }
 
 nav {
