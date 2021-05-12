@@ -29,7 +29,8 @@
 	--main-font-wght: 500;
 	--base-size: 0.79rem;
 	--type-scale: 1.125; /* Screen Sizes | L - Major 3rd - 1.25 | M - 1.2 Minor 3rd | S - 1.125 Major 2nd */
-	--h5: calc(var(--base-size) * var(--type-scale));
+	--h6: calc(var(--base-size) * var(--type-scale));
+	--h5: calc(var(--h6) * var(--type-scale));
 	--h4: calc(var(--h5) * var(--type-scale));
 	--h3: calc(var(--h4) * var(--type-scale));
 	--h2: calc(var(--h3) * var(--type-scale));
@@ -117,7 +118,7 @@ nav > a:first-of-type {
 nav > ul a {
 	padding: 0 0.4em;
 	font-size: var(--base-size);
-	font-weight: bold;
+	--main-font-wght: 600;
 	letter-spacing: 3px;
 }
 
@@ -146,7 +147,7 @@ body > article:first-of-type:not([class="intro"]) {
 }
 
 .intro {
-	margin: auto;
+	margin: 0 auto 6em;
 	width: 90%;
 }
 
@@ -158,14 +159,14 @@ body > article:first-of-type:not([class="intro"]) {
 .intro h2 {
 	margin-bottom: 0.3em;
 	font-size: var(--h4);
-	font-weight: 600;
+	--main-font-wght: 400;
 	letter-spacing: 2px;
 }
 
 .intro h3 {
 	margin-bottom: 2em;
 	font-size: var(--h5);
-	font-weight: 400;
+	--main-font-wght: 300;
 	letter-spacing: 1px;
 }
 
@@ -179,43 +180,65 @@ body > article:not([class="intro"]) {
 	margin-top: 1em;
 	max-width: 80%;
 	text-align: center;
+	letter-spacing: 5px;
 }
 
-body > article:not([class="intro"]),
-body > article:not([class="title"]) {
+body > article:not([class="intro"]) {
 	margin-bottom: 4em;
 }
 
 body > article:not([class="intro"]) h1,
 body > article:not([class="intro"]) h2 {
 	text-transform: uppercase;
-	letter-spacing: 5px;
+	/* letter-spacing: 5px; */
 }
 
 body > article:not([class="intro"]) h2 + h3 {
 	margin-top: 1em;
 	margin-bottom: 3em;
-	font-weight: lighter;
+	--main-font-wght: 300;
 	text-transform: uppercase;
-	letter-spacing: 5px;
+	/* letter-spacing: 5px; */
 }
 
 body > article:not([class="intro"]) h2 + p {
 	margin: auto;
 	margin-top: 2em;
 	letter-spacing: 1px;
-	line-height: 1.3em;
+	line-height: 1.5em;
+}
+
+article > article,
+article > section {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
 }
 
 article > article {
-	display: flex;
-	flex-flow: row wrap;
 	justify-content: center;
-	align-items: stretch;
-	/* margin: auto; */
-	margin-top: 3em;
-	margin-bottom: 3em;
-	width: 100%;
+	margin: 3em 0;
+	/* width: 100%; */
+}
+
+article > section {
+	justify-content: space-around;
+	margin: 2em auto;
+	/* max-width: 100%; */
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+section > div h3 {
+	margin-bottom: 1.3em;
+	font-size: var(--h5);
+	--main-font-wght: 400;
+}
+
+article > section h4 {
+	margin-top: .7em;
+	font-size: var(--h6);
+	--main-font-wght: 300;
 }
 
 article > div + div {
@@ -226,21 +249,21 @@ article > div + div {
 article > div + div h3 a {
 	color: var(--accent-color);
 	font-size: var(--h2);
-	font-weight: 600;
+	--main-font-wght: 400;
 	text-transform: uppercase;
 	letter-spacing: 4px;
 }
 
 article > div + div h4 {
 	margin-top: 1em;
-	font-weight: 400;
+	--main-font-wght: 300;
 	letter-spacing: 2px;
 }
 
 article > div + div p {
 	margin-top: 1.5em;
 	letter-spacing: 2px;
-	line-height: 1.6;
+	line-height: 1.6em;
 }
 
 article > div + div a {
@@ -306,11 +329,17 @@ article > div + div a:hover {
 	max-width: 70%;
 }
 
-/* Tablet */
+/*
+------ Tablet
+*/
 @media screen and (min-width: 650px) {
 	:root {
 		--base-size: 1rem;
 		--type-scale: 1.2;
+	}
+
+	nav > ul a {
+		--main-font-wght: 400;
 	}
 
 	body > article:first-of-type,
@@ -319,12 +348,40 @@ article > div + div a:hover {
 	}
 
 	.intro {
+		margin-bottom: 10em;
 		width: 80%;
 	}
 
-	body > article:not([class="intro"]),
-	body > article:not([class="title"]) {
+	.intro p {
+		margin-bottom: 0.7em;
+	}
+
+	body > article:not([class="intro"]) {
 		margin-bottom: 8em;
+	}
+
+	article > section {
+		margin: 3.5em auto;
+		letter-spacing: 1px;
+	}
+
+	section > div h3 {
+		margin-bottom: 2em;
+		font-size: var(--h6);
+	--main-font-wght: 500;
+	}
+
+	article > section h4 {
+		margin-top: .7em;
+		font-size: var(--p);
+	--main-font-wght: 400;
+		letter-spacing: 2px;
+	}
+
+	body > article:not([class="intro"]) h2 + p {
+    margin-top: 3em;
+    letter-spacing: 1px;
+    line-height: 1.8em;
 	}
 
 	article > div + div h3 a {
@@ -344,7 +401,9 @@ article > div + div a:hover {
 	}
 }
 
-/* Desktop */
+/*
+------ Desktop
+*/
 @media screen and (min-width: 1100px) {
 	:root {
 		--base-size: 0.889rem;
@@ -361,17 +420,27 @@ article > div + div a:hover {
 		margin-left: 3em;
 	}
 
+	nav > ul a {
+		font-size: var(--p);
+		--main-font-wght: 600;
+	}
+
 	nav li {
 		margin-right: 3em;
 	}
 
 	body > article:first-of-type {
-		margin-top: 12em;
+		margin-top: 14em;
 	}
 
 	.intro {
-		margin-bottom: 70em;
+		margin-bottom: 8em;
 		width: 70%;
+	}
+
+	.intro p {
+		margin-bottom: 1em;
+		letter-spacing: 1px;
 	}
 
 	body > article:first-of-type:not([class="intro"]) {
@@ -380,14 +449,35 @@ article > div + div a:hover {
 
 	body > article:not([class="intro"]) {
 		margin: 0 auto;
-		margin-top: 4em;
+		margin-top: 8em;
 		max-width: 100%;
 		text-align: center;
 	}
 
+	article > section {
+		margin: 3.5em auto;
+		max-width: 70%;
+		letter-spacing: 5px;
+	}
+
+	section > div h3 {
+		margin-bottom: 1.3em;
+		font-size: var(--h4);
+	--main-font-wght: 400;
+	}
+
+	article > section h4 {
+		margin-top: .7em;
+		font-size: var(--h6);
+	--main-font-wght: 300;
+		letter-spacing: 2px;
+	}
+
 	body > article:not([class="intro"]) h2 + p {
+		margin-top: 3em;
 		width: 50%;
-		line-height: 1.5;
+    letter-spacing: 1px;
+    line-height: 2em;
 	}
 
 	article > article:first-of-type {
