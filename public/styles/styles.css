@@ -275,6 +275,7 @@ article > div + div p {
 article > div + div a {
 	padding: 0.3em;
 	border: 2px solid var(--accent-color);
+	color: var(--accent-color);
 }
 
 article > div + div h3 a:hover,
@@ -497,7 +498,7 @@ article > div + div a:hover {
 	}
 
 	article > div + div h3 a {
-		color: #4ecca3;
+		color: var(--accent-color);
 	}
 
 	article > div + div h4 {
