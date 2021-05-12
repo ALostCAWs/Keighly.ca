@@ -241,13 +241,19 @@ article > section h4 {
 	--main-font-wght: 300;
 }
 
+article > div > div {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin-top: 1em;
+}
+
 article > div + div {
 	min-width: 90%;
 	/* text-align: left; */
 }
 
 article > div + div h3 a {
-	color: var(--accent-color);
 	font-size: var(--h2);
 	--main-font-wght: 400;
 	text-transform: uppercase;
@@ -256,7 +262,7 @@ article > div + div h3 a {
 
 article > div + div h4 {
 	margin-top: 1em;
-	--main-font-wght: 300;
+	--main-font-wght: 200;
 	letter-spacing: 2px;
 }
 
